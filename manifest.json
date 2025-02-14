@@ -1,0 +1,21 @@
+{
+  /*
+   | This file is automatically updated by ModManifestBuilder
+   | when the project is compiled.
+   | 
+   | Changes made to this file may be overwritten.
+   | 
+   */
+  "$schema": "https://smapi.io/schemas/manifest.json",
+  "UniqueID": "suzukiPC.NightingaleCityCode",
+  "Name": "Nightingale City",
+  "Author": "rokugin, Pau",
+  "Version": "1.0.0-Debug",
+  "Description": "Code component for Nightingale City.",
+  "MinimumApiVersion": "4.1.0",
+  "MinimumGameVersion": "1.6.15",
+  "EntryDll": "NightingaleCity.dll",
+  "UpdateKeys": [
+    "Nexus:0"
+  ]
+}
