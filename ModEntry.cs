@@ -2,6 +2,8 @@
 using StardewModdingAPI.Events;
 using NightingaleCity.ClockTower;
 using NightingaleCity.Integrations;
+using StardewValley;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace NightingaleCity;
 
@@ -17,6 +19,23 @@ internal class ModEntry : Mod {
 
         helper.Events.GameLoop.GameLaunched += OnGameLaunched;
         helper.Events.Display.RenderedWorld += OnRenderedWorld;
+        helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+        helper.Events.Player.Warped += OnWarped;
+        helper.Events.GameLoop.TimeChanged += OnTimeChanged;
+    }
+
+    private void OnTimeChanged(object? sender, TimeChangedEventArgs e) {
+        //Log.Info((Game1.timeOfDay % 1200).ToString(), true);
+    }
+
+    private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e) {
+        if (ClockHands.ClockTexture == null) {
+            ClockHands.ClockTexture = Game1.content.Load<Texture2D>("Maps/rokuginClockTowerTilesheet");
+        }
+    }
+
+    private void OnWarped(object? sender, WarpedEventArgs e) {
+        ClockHands.ShouldRender = e.NewLocation == Game1.getLocationFromName("Town");
     }
 
     private void OnRenderedWorld(object? sender, RenderedWorldEventArgs e) {
