@@ -21,11 +21,6 @@ internal class ModEntry : Mod {
         helper.Events.Display.RenderedWorld += OnRenderedWorld;
         helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
         helper.Events.Player.Warped += OnWarped;
-        helper.Events.GameLoop.TimeChanged += OnTimeChanged;
-    }
-
-    private void OnTimeChanged(object? sender, TimeChangedEventArgs e) {
-        //Log.Info((Game1.timeOfDay % 1200).ToString(), true);
     }
 
     private void OnSaveLoaded(object? sender, SaveLoadedEventArgs e) {
